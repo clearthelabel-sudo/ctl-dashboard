@@ -1,0 +1,2034 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clear The Label — The Gut Reset n°1</title>
+  <meta name="description" content="La boisson digestive premium en sticks poudre. Saveur pêche litchi. Formulée pour votre microbiome.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ─── RESET & BASE ─────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:      #FDF8E7;
+      --brown:      #331F1E;
+      --terra:      #C4633A;
+      --terra-light:#E8895A;
+      --terra-pale: #F5DCCF;
+      --sand:       #EDE3CC;
+      --gold:       #B8963E;
+      --muted:      #7A6358;
+      --white:      #FFFFFF;
+
+      --font-display: 'Bricolage Grotesque', sans-serif;
+      --font-body:    'Raleway', sans-serif;
+
+      --ease-out:   cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-inout: cubic-bezier(0.45, 0, 0.55, 1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--cream);
+      color: var(--brown);
+      line-height: 1.65;
+      font-size: 16px;
+      overflow-x: hidden;
+    }
+
+    ::selection { background: var(--terra-pale); color: var(--brown); }
+
+    /* ─── SCROLLBAR ─────────────────────────────────────────── */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--cream); }
+    ::-webkit-scrollbar-thumb { background: var(--terra); border-radius: 2px; }
+
+    /* ─── TYPOGRAPHY ────────────────────────────────────────── */
+    h1, h2, h3, h4 {
+      font-family: var(--font-display);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    /* ─── UTILITIES ─────────────────────────────────────────── */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 clamp(1.5rem, 5vw, 4rem);
+    }
+
+    .sr-only {
+      position: absolute; width: 1px; height: 1px;
+      padding: 0; margin: -1px; overflow: hidden;
+      clip: rect(0,0,0,0); border: 0;
+    }
+
+    /* ─── SCROLL REVEAL ─────────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
+    }
+    .reveal-left.visible { opacity: 1; transform: translateX(0); }
+
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
+    }
+    .reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(0.92);
+      transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+    }
+    .reveal-scale.visible { opacity: 1; transform: scale(1); }
+
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+    .delay-4 { transition-delay: 0.45s; }
+    .delay-5 { transition-delay: 0.6s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal, .reveal-left, .reveal-right, .reveal-scale {
+        opacity: 1; transform: none; transition: none;
+      }
+    }
+
+    /* ─── NAV ───────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 1.25rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 100;
+      width: calc(100% - 3rem);
+      max-width: 1100px;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.875rem 1.75rem;
+      background: rgba(253, 248, 231, 0.82);
+      backdrop-filter: blur(20px) saturate(1.4);
+      -webkit-backdrop-filter: blur(20px) saturate(1.4);
+      border: 1px solid rgba(51, 31, 30, 0.10);
+      border-radius: 100px;
+      transition: box-shadow 0.3s ease, background 0.3s ease;
+    }
+
+    .nav-inner.scrolled {
+      box-shadow: 0 8px 32px rgba(51, 31, 30, 0.12);
+      background: rgba(253, 248, 231, 0.95);
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--brown);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-logo-dot {
+      width: 8px; height: 8px;
+      background: var(--terra);
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      transition: color 0.2s ease;
+    }
+    .nav-links a:hover { color: var(--brown); }
+
+    .btn-nav {
+      font-family: var(--font-body);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--cream) !important;
+      background: var(--brown);
+      padding: 0.5rem 1.25rem;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: background 0.25s ease, transform 0.2s ease !important;
+      cursor: pointer;
+    }
+    .btn-nav:hover {
+      background: var(--terra) !important;
+      transform: translateY(-1px) !important;
+      color: var(--cream) !important;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+    }
+
+    /* ─── HERO ──────────────────────────────────────────────── */
+    #hero {
+      min-height: 100svh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 4rem;
+      padding-top: 8rem;
+      padding-bottom: 6rem;
+    }
+
+    .hero-content {}
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--terra-pale);
+      color: var(--terra);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.375rem 0.875rem;
+      border-radius: 100px;
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-badge-dot {
+      width: 6px; height: 6px;
+      background: var(--terra);
+      border-radius: 50%;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.7); }
+    }
+
+    .hero-title {
+      font-size: clamp(2.75rem, 5.5vw, 5rem);
+      font-weight: 800;
+      color: var(--brown);
+      margin-bottom: 1.5rem;
+      line-height: 1.0;
+    }
+
+    .hero-title em {
+      font-style: normal;
+      color: var(--terra);
+      position: relative;
+    }
+
+    .hero-title em::after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: 0; right: 0;
+      height: 3px;
+      background: var(--terra);
+      border-radius: 2px;
+      transform: scaleX(0);
+      transform-origin: left;
+      animation: underline-reveal 0.8s var(--ease-out) 1.2s forwards;
+    }
+
+    @keyframes underline-reveal {
+      to { transform: scaleX(1); }
+    }
+
+    .hero-sub {
+      font-size: 1.0625rem;
+      color: var(--muted);
+      max-width: 42ch;
+      margin-bottom: 2.5rem;
+      font-weight: 400;
+      line-height: 1.75;
+    }
+
+    .hero-ctas {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--cream);
+      background: var(--brown);
+      padding: 0.875rem 2rem;
+      border-radius: 100px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--terra);
+      transform: scaleX(0);
+      transform-origin: left;
+      border-radius: inherit;
+      transition: transform 0.4s var(--ease-out);
+      z-index: 0;
+    }
+
+    .btn-primary:hover::before { transform: scaleX(1); }
+    .btn-primary span { position: relative; z-index: 1; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(196, 99, 58, 0.35); }
+    .btn-primary:active { transform: translateY(0); }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--brown);
+      text-decoration: none;
+      padding: 0.875rem 1.5rem;
+      border-radius: 100px;
+      border: 1.5px solid rgba(51, 31, 30, 0.2);
+      cursor: pointer;
+      background: transparent;
+      transition: border-color 0.25s ease, color 0.25s ease, background 0.25s ease;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--terra);
+      color: var(--terra);
+      background: var(--terra-pale);
+    }
+
+    .hero-proof {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 2.5rem;
+    }
+
+    .hero-avatars {
+      display: flex;
+    }
+
+    .hero-avatar {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      border: 2px solid var(--cream);
+      margin-right: -8px;
+      overflow: hidden;
+    }
+
+    .hero-avatar svg { width: 100%; height: 100%; }
+
+    .hero-proof-text {
+      font-size: 0.8125rem;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .hero-proof-text strong {
+      color: var(--brown);
+      font-weight: 600;
+    }
+
+    /* ─── HERO VISUAL ───────────────────────────────────────── */
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .product-stage {
+      position: relative;
+      width: 420px;
+      height: 520px;
+    }
+
+    /* Background blob */
+    .stage-blob {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 340px;
+      height: 340px;
+      background: radial-gradient(ellipse, var(--terra-pale) 0%, rgba(245,220,207,0) 70%);
+      border-radius: 50%;
+      animation: blob-breathe 6s ease-in-out infinite;
+    }
+
+    @keyframes blob-breathe {
+      0%, 100% { transform: translate(-50%, -50%) scale(1); }
+      50% { transform: translate(-50%, -50%) scale(1.08); }
+    }
+
+    /* Orbiting pills */
+    .orbit-ring {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 380px; height: 380px;
+      border-radius: 50%;
+      border: 1px dashed rgba(196, 99, 58, 0.18);
+      animation: orbit-spin 30s linear infinite;
+    }
+
+    @keyframes orbit-spin {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to   { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    .orbit-pill {
+      position: absolute;
+      background: var(--cream);
+      border: 1px solid rgba(51, 31, 30, 0.1);
+      border-radius: 100px;
+      padding: 0.3rem 0.75rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--brown);
+      white-space: nowrap;
+      box-shadow: 0 4px 16px rgba(51,31,30,0.08);
+      counter-reset: none;
+      /* counter the ring rotation */
+      animation: orbit-counter 30s linear infinite;
+    }
+
+    @keyframes orbit-counter {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(-360deg); }
+    }
+
+    .orbit-pill-1 { top: -14px; left: 50%; transform: translateX(-50%); }
+    .orbit-pill-2 { top: 50%; right: -20px; transform: translateY(-50%); }
+    .orbit-pill-3 { bottom: -14px; left: 50%; transform: translateX(-50%); }
+    .orbit-pill-4 { top: 50%; left: -20px; transform: translateY(-50%); }
+
+    /* Product stick pack SVG */
+    .product-stick {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      filter: drop-shadow(0 24px 48px rgba(51,31,30,0.18));
+      animation: product-float 5s ease-in-out infinite;
+    }
+
+    @keyframes product-float {
+      0%, 100% { transform: translate(-50%, -50%) translateY(0); }
+      50% { transform: translate(-50%, -50%) translateY(-12px); }
+    }
+
+    /* Floating badges */
+    .float-badge {
+      position: absolute;
+      background: var(--white);
+      border-radius: 16px;
+      padding: 0.6rem 1rem;
+      box-shadow: 0 8px 32px rgba(51,31,30,0.12);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--brown);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      animation: badge-float 4s ease-in-out infinite;
+    }
+
+    .float-badge-1 {
+      top: 60px; right: 10px;
+      animation-delay: 0s;
+    }
+
+    .float-badge-2 {
+      bottom: 100px; left: -10px;
+      animation-delay: -2s;
+    }
+
+    @keyframes badge-float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    .badge-icon {
+      width: 28px; height: 28px;
+      background: var(--terra-pale);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 900px) {
+      #hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding-top: 7rem;
+      }
+      .hero-sub { margin: 0 auto 2rem; }
+      .hero-ctas { justify-content: center; }
+      .hero-proof { justify-content: center; }
+      .product-stage { width: 320px; height: 380px; }
+      .orbit-ring { width: 280px; height: 280px; }
+      .stage-blob { width: 260px; height: 260px; }
+    }
+
+    /* ─── MARQUEE STRIP ─────────────────────────────────────── */
+    .marquee-strip {
+      overflow: hidden;
+      border-top: 1px solid rgba(51,31,30,0.08);
+      border-bottom: 1px solid rgba(51,31,30,0.08);
+      padding: 1rem 0;
+      background: var(--sand);
+    }
+
+    .marquee-track {
+      display: flex;
+      gap: 0;
+      animation: marquee 25s linear infinite;
+      width: max-content;
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    .marquee-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0 2.5rem;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--brown);
+      white-space: nowrap;
+    }
+
+    .marquee-sep {
+      width: 5px; height: 5px;
+      background: var(--terra);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ─── SECTION LAYOUT ────────────────────────────────────── */
+    section { padding: clamp(5rem, 10vw, 9rem) 0; }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--terra);
+      margin-bottom: 1.25rem;
+    }
+
+    .section-label::before {
+      content: '';
+      width: 24px; height: 1.5px;
+      background: var(--terra);
+      display: inline-block;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 700;
+      color: var(--brown);
+      margin-bottom: 1.25rem;
+    }
+
+    .section-desc {
+      font-size: 1.0625rem;
+      color: var(--muted);
+      max-width: 52ch;
+      line-height: 1.75;
+    }
+
+    /* ─── PRODUCT SECTION ───────────────────────────────────── */
+    #produit {
+      background: linear-gradient(180deg, var(--cream) 0%, var(--sand) 100%);
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(3rem, 6vw, 6rem);
+      align-items: center;
+    }
+
+    .product-info {}
+
+    .product-number {
+      font-family: var(--font-display);
+      font-size: 8rem;
+      font-weight: 800;
+      color: var(--terra-pale);
+      line-height: 1;
+      margin-bottom: -1rem;
+      display: block;
+    }
+
+    .product-name {
+      font-size: clamp(2rem, 3vw, 2.75rem);
+      font-weight: 800;
+      color: var(--brown);
+      margin-bottom: 0.75rem;
+    }
+
+    .product-tagline {
+      font-size: 1rem;
+      color: var(--terra);
+      font-weight: 500;
+      margin-bottom: 1.75rem;
+      font-style: italic;
+    }
+
+    .product-desc-text {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 2rem;
+      max-width: 48ch;
+    }
+
+    .product-specs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .spec-item {
+      background: rgba(255,255,255,0.6);
+      border: 1px solid rgba(51,31,30,0.08);
+      border-radius: 16px;
+      padding: 1.25rem;
+      transition: border-color 0.25s ease, transform 0.25s ease;
+      cursor: default;
+    }
+
+    .spec-item:hover {
+      border-color: var(--terra-pale);
+      transform: translateY(-2px);
+    }
+
+    .spec-value {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--brown);
+      margin-bottom: 0.2rem;
+    }
+
+    .spec-label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      font-weight: 500;
+      letter-spacing: 0.04em;
+    }
+
+    .product-visual-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .product-bg-circle {
+      width: 380px; height: 380px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--terra-pale) 0%, transparent 70%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    @media (max-width: 900px) {
+      .product-grid { grid-template-columns: 1fr; }
+      .product-visual-wrap { order: -1; }
+    }
+
+    /* ─── INGRÉDIENTS ───────────────────────────────────────── */
+    #ingredients { background: var(--cream); }
+
+    .ingredients-header {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 4rem;
+    }
+
+    .ingredients-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .ingredient-card {
+      background: var(--white);
+      border: 1px solid rgba(51,31,30,0.07);
+      border-radius: 24px;
+      padding: 2rem 1.5rem;
+      cursor: default;
+      transition: transform 0.3s var(--ease-out), box-shadow 0.3s ease, border-color 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ingredient-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--terra), var(--gold));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s var(--ease-out);
+    }
+
+    .ingredient-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(51,31,30,0.1);
+      border-color: var(--terra-pale);
+    }
+
+    .ingredient-card:hover::before { transform: scaleX(1); }
+
+    .ingredient-icon {
+      width: 48px; height: 48px;
+      background: var(--terra-pale);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .ingredient-name {
+      font-family: var(--font-display);
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--brown);
+      margin-bottom: 0.5rem;
+    }
+
+    .ingredient-dose {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--terra);
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.02em;
+    }
+
+    .ingredient-desc {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ─── HOW IT WORKS ──────────────────────────────────────── */
+    #ritual {
+      background: var(--brown);
+      color: var(--cream);
+    }
+
+    #ritual .section-label { color: var(--terra-light); }
+    #ritual .section-label::before { background: var(--terra-light); }
+    #ritual .section-title { color: var(--cream); }
+    #ritual .section-desc { color: rgba(253,248,231,0.65); }
+
+    .ritual-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 4rem;
+    }
+
+    .ritual-step {
+      padding: 2.5rem 2rem;
+      border: 1px solid rgba(253,248,231,0.1);
+      border-radius: 28px;
+      position: relative;
+      transition: background 0.3s ease, border-color 0.3s ease;
+      cursor: default;
+    }
+
+    .ritual-step:hover {
+      background: rgba(253,248,231,0.05);
+      border-color: rgba(196,99,58,0.4);
+    }
+
+    .ritual-step-num {
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--terra-light);
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .ritual-step-icon {
+      width: 56px; height: 56px;
+      background: rgba(196,99,58,0.15);
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .ritual-step-title {
+      font-family: var(--font-display);
+      font-size: 1.375rem;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 0.75rem;
+      line-height: 1.2;
+    }
+
+    .ritual-step-desc {
+      font-size: 0.9375rem;
+      color: rgba(253,248,231,0.65);
+      line-height: 1.65;
+    }
+
+    .ritual-connector {
+      position: absolute;
+      top: 40%;
+      right: -1.1rem;
+      width: 22px;
+      opacity: 0.3;
+    }
+
+    @media (max-width: 768px) {
+      .ritual-grid { grid-template-columns: 1fr; }
+      .ritual-connector { display: none; }
+    }
+
+    /* ─── RÉSULTATS / STATS ─────────────────────────────────── */
+    #resultats { background: var(--sand); }
+
+    .stats-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      margin-bottom: 5rem;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .stat-card {
+      background: var(--cream);
+      border-radius: 24px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      border: 1px solid rgba(51,31,30,0.07);
+      transition: transform 0.3s var(--ease-out), box-shadow 0.3s ease;
+      cursor: default;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(51,31,30,0.1);
+    }
+
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+      font-weight: 800;
+      color: var(--terra);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 0.875rem;
+      color: var(--muted);
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 768px) {
+      .stats-header { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* ─── TÉMOIGNAGES ───────────────────────────────────────── */
+    #temoignages { background: var(--cream); overflow: hidden; }
+
+    .testimonials-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .testimonials-track {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .testimonial-card {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 2rem;
+      border: 1px solid rgba(51,31,30,0.07);
+      transition: transform 0.3s var(--ease-out), box-shadow 0.3s ease;
+      cursor: default;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(51,31,30,0.08);
+    }
+
+    .testimonial-stars {
+      display: flex;
+      gap: 3px;
+      margin-bottom: 1rem;
+    }
+
+    .star-svg { width: 16px; height: 16px; }
+
+    .testimonial-text {
+      font-size: 0.9375rem;
+      color: var(--brown);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+
+    .testimonial-text::before { content: '\201C'; color: var(--terra); font-size: 1.25em; line-height: 0; }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .author-avatar {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: var(--terra-pale);
+      flex-shrink: 0;
+    }
+
+    .author-name {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--brown);
+    }
+
+    .author-detail {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 0.1rem;
+    }
+
+    .testimonial-verified {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-size: 0.7rem;
+      color: var(--terra);
+      font-weight: 600;
+      margin-top: 0.25rem;
+      letter-spacing: 0.03em;
+    }
+
+    @media (max-width: 900px) {
+      .testimonials-track { grid-template-columns: 1fr; }
+    }
+
+    /* ─── CTA FINALE ────────────────────────────────────────── */
+    #cta-final {
+      background: var(--brown);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-bg-pattern {
+      position: absolute;
+      inset: 0;
+      opacity: 0.04;
+      background-image: radial-gradient(var(--cream) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .cta-content .section-title { color: var(--cream); font-size: clamp(2.25rem, 4vw, 3.5rem); }
+    .cta-content .section-desc { color: rgba(253,248,231,0.65); margin: 0 auto 2.5rem; }
+
+    .cta-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-cta-light {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--brown);
+      background: var(--cream);
+      padding: 0.875rem 2rem;
+      border-radius: 100px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+    }
+
+    .btn-cta-light:hover {
+      background: var(--terra-pale);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(253,248,231,0.2);
+    }
+
+    .btn-cta-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--cream);
+      background: transparent;
+      padding: 0.875rem 1.75rem;
+      border-radius: 100px;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1.5px solid rgba(253,248,231,0.3);
+      transition: border-color 0.25s ease, background 0.25s ease;
+    }
+
+    .btn-cta-outline:hover {
+      border-color: rgba(253,248,231,0.7);
+      background: rgba(253,248,231,0.08);
+    }
+
+    .cta-guarantee {
+      margin-top: 2rem;
+      font-size: 0.8125rem;
+      color: rgba(253,248,231,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    /* ─── FOOTER ────────────────────────────────────────────── */
+    footer {
+      background: var(--brown);
+      border-top: 1px solid rgba(253,248,231,0.08);
+      padding: 3rem 0 2rem;
+    }
+
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-brand-name {
+      font-family: var(--font-display);
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .footer-desc {
+      font-size: 0.875rem;
+      color: rgba(253,248,231,0.5);
+      line-height: 1.7;
+      max-width: 32ch;
+    }
+
+    .footer-col-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(253,248,231,0.4);
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .footer-links a {
+      font-size: 0.875rem;
+      color: rgba(253,248,231,0.6);
+      text-decoration: none;
+      transition: color 0.2s ease;
+      cursor: pointer;
+    }
+
+    .footer-links a:hover { color: var(--cream); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(253,248,231,0.08);
+      padding-top: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-copy {
+      font-size: 0.8125rem;
+      color: rgba(253,248,231,0.35);
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-link {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(253,248,231,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.2s ease, background 0.2s ease;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .social-link:hover {
+      border-color: rgba(253,248,231,0.4);
+      background: rgba(253,248,231,0.06);
+    }
+
+    @media (max-width: 768px) {
+      .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    /* ─── PROGRESS BAR ──────────────────────────────────────── */
+    #progress-bar {
+      position: fixed;
+      top: 0; left: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--terra), var(--gold));
+      z-index: 200;
+      transform-origin: left;
+      transform: scaleX(0);
+      transition: transform 0.1s linear;
+    }
+
+    /* ─── BACK TO TOP ───────────────────────────────────────── */
+    #back-top {
+      position: fixed;
+      bottom: 2rem; right: 2rem;
+      width: 44px; height: 44px;
+      background: var(--brown);
+      border: none;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.3s ease, transform 0.3s ease, background 0.25s ease;
+      z-index: 50;
+    }
+
+    #back-top.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    #back-top:hover { background: var(--terra); }
+
+    #back-top:focus-visible {
+      outline: 2px solid var(--terra);
+      outline-offset: 3px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Progress bar -->
+<div id="progress-bar" role="progressbar" aria-label="Progression de lecture"></div>
+
+<!-- ─── NAV ─────────────────────────────────────────────── -->
+<nav aria-label="Navigation principale">
+  <div class="nav-inner" id="nav-inner">
+    <a href="#hero" class="nav-logo" aria-label="Clear The Label — accueil">
+      <span class="nav-logo-dot" aria-hidden="true"></span>
+      Clear The Label
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="#produit">Le Produit</a></li>
+      <li><a href="#ingredients">Ingrédients</a></li>
+      <li><a href="#ritual">Rituel</a></li>
+      <li><a href="#temoignages">Avis</a></li>
+      <li><a href="#cta-final" class="btn-nav">Commander</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ─── HERO ─────────────────────────────────────────────── -->
+<section id="hero" aria-labelledby="hero-title">
+  <div class="container" style="display:contents">
+    <div style="max-width:1200px;margin:0 auto;padding:0 clamp(1.5rem,5vw,4rem);display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:4rem;min-height:100svh;padding-top:8rem;padding-bottom:6rem;" class="hero-wrapper">
+      <!-- Left: content -->
+      <div class="hero-content">
+        <div class="hero-badge reveal">
+          <span class="hero-badge-dot" aria-hidden="true"></span>
+          Nouveau — Édition Printemps 2025
+        </div>
+
+        <h1 class="hero-title reveal delay-1" id="hero-title">
+          Réinitialisez<br>votre <em>intestin</em>,<br>libérez votre énergie.
+        </h1>
+
+        <p class="hero-sub reveal delay-2">
+          The Gut Reset n°1 — une formule digestive scientifiquement pensée, en sticks poudre saveur pêche litchi. Sans compromis sur le goût.
+        </p>
+
+        <div class="hero-ctas reveal delay-3">
+          <a href="#cta-final" class="btn-primary" aria-label="Commander The Gut Reset n°1">
+            <span>Commander maintenant</span>
+            <!-- Arrow icon -->
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="#produit" class="btn-secondary" aria-label="Découvrir le produit">
+            <!-- Play icon -->
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M6.5 5.5l4 2.5-4 2.5V5.5z" fill="currentColor"/>
+            </svg>
+            Découvrir
+          </a>
+        </div>
+
+        <div class="hero-proof reveal delay-4" aria-label="Preuve sociale : 4 800+ clientes satisfaites">
+          <div class="hero-avatars" aria-hidden="true">
+            <!-- Avatar 1 -->
+            <div class="hero-avatar">
+              <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                <rect width="32" height="32" fill="#E8895A"/>
+                <circle cx="16" cy="13" r="6" fill="#FDF8E7" opacity="0.8"/>
+                <ellipse cx="16" cy="28" rx="10" ry="7" fill="#FDF8E7" opacity="0.8"/>
+              </svg>
+            </div>
+            <!-- Avatar 2 -->
+            <div class="hero-avatar">
+              <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                <rect width="32" height="32" fill="#B8963E"/>
+                <circle cx="16" cy="13" r="6" fill="#FDF8E7" opacity="0.8"/>
+                <ellipse cx="16" cy="28" rx="10" ry="7" fill="#FDF8E7" opacity="0.8"/>
+              </svg>
+            </div>
+            <!-- Avatar 3 -->
+            <div class="hero-avatar">
+              <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                <rect width="32" height="32" fill="#7A6358"/>
+                <circle cx="16" cy="13" r="6" fill="#FDF8E7" opacity="0.8"/>
+                <ellipse cx="16" cy="28" rx="10" ry="7" fill="#FDF8E7" opacity="0.8"/>
+              </svg>
+            </div>
+          </div>
+          <p class="hero-proof-text"><strong>4 800+</strong> clientes satisfaites · Note <strong>4.9/5</strong></p>
+        </div>
+      </div>
+
+      <!-- Right: visual -->
+      <div class="hero-visual reveal-scale delay-2">
+        <div class="product-stage" aria-hidden="true">
+          <div class="stage-blob"></div>
+
+          <!-- Orbit ring with pills -->
+          <div class="orbit-ring">
+            <span class="orbit-pill orbit-pill-1">100% Naturel</span>
+            <span class="orbit-pill orbit-pill-2">Sans sucre</span>
+            <span class="orbit-pill orbit-pill-3">Vegan</span>
+            <span class="orbit-pill orbit-pill-4">30 sticks</span>
+          </div>
+
+          <!-- Product stick pack SVG -->
+          <div class="product-stick">
+            <svg width="180" height="320" viewBox="0 0 180 320" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The Gut Reset n°1 — stick pack pêche litchi">
+              <!-- Stick body -->
+              <rect x="20" y="16" width="140" height="288" rx="28" fill="#EDE3CC"/>
+              <!-- Gradient overlay -->
+              <rect x="20" y="16" width="140" height="288" rx="28" fill="url(#stickGrad)"/>
+              <!-- Shine -->
+              <rect x="30" y="24" width="42" height="272" rx="22" fill="white" opacity="0.12"/>
+              <!-- Top seal line -->
+              <rect x="20" y="50" width="140" height="3" fill="rgba(51,31,30,0.12)"/>
+              <!-- Bottom seal line -->
+              <rect x="20" y="267" width="140" height="3" fill="rgba(51,31,30,0.12)"/>
+
+              <!-- Brand name -->
+              <text x="90" y="100" font-family="'Bricolage Grotesque', sans-serif" font-size="9" font-weight="700" fill="#331F1E" text-anchor="middle" letter-spacing="3" opacity="0.6">CLEAR THE LABEL</text>
+
+              <!-- Product number large -->
+              <text x="90" y="155" font-family="'Bricolage Grotesque', sans-serif" font-size="64" font-weight="800" fill="#331F1E" text-anchor="middle" opacity="0.12">1</text>
+
+              <!-- Product name -->
+              <text x="90" y="148" font-family="'Bricolage Grotesque', sans-serif" font-size="16" font-weight="800" fill="#331F1E" text-anchor="middle">THE GUT</text>
+              <text x="90" y="170" font-family="'Bricolage Grotesque', sans-serif" font-size="16" font-weight="800" fill="#331F1E" text-anchor="middle">RESET</text>
+
+              <!-- Accent line -->
+              <rect x="65" y="180" width="50" height="2" rx="1" fill="#C4633A"/>
+
+              <!-- Flavor label -->
+              <text x="90" y="202" font-family="'Raleway', sans-serif" font-size="9.5" font-weight="500" fill="#C4633A" text-anchor="middle" font-style="italic">Pêche · Litchi</text>
+
+              <!-- Small details -->
+              <text x="90" y="235" font-family="'Raleway', sans-serif" font-size="7.5" font-weight="500" fill="#331F1E" text-anchor="middle" opacity="0.5">30 sticks · 3g chacun</text>
+              <text x="90" y="252" font-family="'Raleway', sans-serif" font-size="7.5" font-weight="500" fill="#331F1E" text-anchor="middle" opacity="0.5">Complément alimentaire</text>
+
+              <!-- Decorative dots bottom -->
+              <circle cx="76" cy="275" r="2" fill="#C4633A" opacity="0.4"/>
+              <circle cx="90" cy="275" r="2" fill="#C4633A" opacity="0.6"/>
+              <circle cx="104" cy="275" r="2" fill="#C4633A" opacity="0.4"/>
+
+              <defs>
+                <linearGradient id="stickGrad" x1="20" y1="16" x2="160" y2="304" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#F5DCCF" stop-opacity="0.6"/>
+                  <stop offset="50%" stop-color="#EDE3CC" stop-opacity="0"/>
+                  <stop offset="100%" stop-color="#C4633A" stop-opacity="0.15"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+
+          <!-- Floating badges -->
+          <div class="float-badge float-badge-1">
+            <div class="badge-icon" aria-hidden="true">
+              <!-- Leaf icon -->
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3 13C3 8 8 3 13 3C13 8 8 13 3 13Z" fill="#C4633A" opacity="0.7"/>
+                <path d="M3 13L8 8" stroke="#C4633A" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <span>Cliniquement testé</span>
+          </div>
+
+          <div class="float-badge float-badge-2">
+            <div class="badge-icon" aria-hidden="true">
+              <!-- Shield icon -->
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M8 2L13 4.5V8.5C13 11 10.5 13.5 8 14.5C5.5 13.5 3 11 3 8.5V4.5L8 2Z" stroke="#C4633A" stroke-width="1.5" fill="none"/>
+                <path d="M5.5 8l1.5 1.5 3-3" stroke="#C4633A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <span>Sans additifs</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── MARQUEE ───────────────────────────────────────────── -->
+<div class="marquee-strip" aria-hidden="true">
+  <div class="marquee-track">
+    <!-- Repeated twice for seamless loop -->
+    <span class="marquee-item"><span class="marquee-sep"></span>Digestion apaisée</span>
+    <span class="marquee-item"><span class="marquee-sep"></span>Flore intestinale renforcée</span>
+    <span class="marquee-item"><span class="marquee-sep"></span>Saveur pêche litchi</span>
+    <span class="marquee-item"><span class="marquee-sep"></span>Formulé par des experts</span>
+    <span class="marquee-item"><span class="marquee-sep"></span>Made in France</span>
+    <span class="marquee-item"><span class="marquee-sep"></span>Certifié vegan</span>
+    <span class="marquee-item"><span class="marquee-sep"></span>Sans gluten</span>
+    <span class="marquee-item"><span class="marquee-sep"></span>30 jours de cure</span>
+    <span class="marquee-item"><span class="marquee-sep"></span>Digestion apaisée</span>
+    <span class="marquee-item"><span class="marquee-sep"></span>Flore intestinale renforcée</span>
+    <span class="marquee-item"><span class="marquee-sep"></span>Saveur pêche litchi</span>
+    <span class="marquee-item"><span class="marquee-sep"></span>Formulé par des experts</span>
+    <span class="marquee-item"><span class="marquee-sep"></span>Made in France</span>
+    <span class="marquee-item"><span class="marquee-sep"></span>Certifié vegan</span>
+    <span class="marquee-item"><span class="marquee-sep"></span>Sans gluten</span>
+    <span class="marquee-item"><span class="marquee-sep"></span>30 jours de cure</span>
+  </div>
+</div>
+
+<!-- ─── PRODUIT ───────────────────────────────────────────── -->
+<section id="produit" aria-labelledby="produit-title">
+  <div class="container">
+    <div class="product-grid">
+      <div class="product-info">
+        <div class="section-label reveal">Le produit phare</div>
+        <span class="product-number reveal delay-1" aria-hidden="true">01</span>
+        <h2 class="product-name reveal delay-2" id="produit-title">The Gut Reset n°1</h2>
+        <p class="product-tagline reveal delay-3">La cure digestive qui réconcilie goût &amp; efficacité.</p>
+        <p class="product-desc-text reveal delay-3">
+          Une synergie unique de probiotiques, prébiotiques et plantes adaptogènes, formulée pour rétablir l'équilibre de votre microbiome intestinal en 30 jours. En stick poudre dissolvable, à emporter partout.
+        </p>
+
+        <div class="product-specs">
+          <div class="spec-item reveal delay-2">
+            <div class="spec-value">30</div>
+            <div class="spec-label">Sticks par boîte</div>
+          </div>
+          <div class="spec-item reveal delay-3">
+            <div class="spec-value">10B</div>
+            <div class="spec-label">UFC probiotiques</div>
+          </div>
+          <div class="spec-item reveal delay-4">
+            <div class="spec-value">3g</div>
+            <div class="spec-label">Dose précise par stick</div>
+          </div>
+          <div class="spec-item reveal delay-5">
+            <div class="spec-value">0</div>
+            <div class="spec-label">Sucres ajoutés</div>
+          </div>
+        </div>
+
+        <a href="#cta-final" class="btn-primary reveal delay-4">
+          <span>Découvrir la formule</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="product-visual-wrap reveal-right">
+        <div class="product-bg-circle" aria-hidden="true">
+          <!-- Larger product illustration -->
+          <svg width="220" height="380" viewBox="0 0 220 380" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Boîte Clear The Label Gut Reset n°1">
+            <!-- Box body -->
+            <rect x="10" y="10" width="200" height="360" rx="32" fill="#EDE3CC"/>
+            <rect x="10" y="10" width="200" height="360" rx="32" fill="url(#boxGrad)"/>
+            <!-- Shine panel -->
+            <rect x="18" y="18" width="60" height="344" rx="26" fill="white" opacity="0.1"/>
+            <!-- Brand tag strip -->
+            <rect x="10" y="62" width="200" height="44" fill="#331F1E"/>
+            <text x="110" y="90" font-family="'Bricolage Grotesque', sans-serif" font-size="11" font-weight="700" fill="#FDF8E7" text-anchor="middle" letter-spacing="3.5">CLEAR THE LABEL</text>
+            <!-- Large number -->
+            <text x="110" y="230" font-family="'Bricolage Grotesque', sans-serif" font-size="110" font-weight="800" fill="#C4633A" text-anchor="middle" opacity="0.09">1</text>
+            <!-- Product name -->
+            <text x="110" y="200" font-family="'Bricolage Grotesque', sans-serif" font-size="22" font-weight="800" fill="#331F1E" text-anchor="middle">THE GUT</text>
+            <text x="110" y="228" font-family="'Bricolage Grotesque', sans-serif" font-size="22" font-weight="800" fill="#331F1E" text-anchor="middle">RESET</text>
+            <!-- Accent underline -->
+            <rect x="77" y="238" width="66" height="2.5" rx="1.25" fill="#C4633A"/>
+            <!-- Flavor -->
+            <text x="110" y="265" font-family="'Raleway', sans-serif" font-size="12" font-weight="500" fill="#C4633A" text-anchor="middle" font-style="italic">Pêche · Litchi</text>
+            <!-- Detail lines -->
+            <text x="110" y="300" font-family="'Raleway', sans-serif" font-size="9" font-weight="600" fill="#331F1E" text-anchor="middle" opacity="0.45" letter-spacing="1.5">30 STICKS POUDRE</text>
+            <text x="110" y="318" font-family="'Raleway', sans-serif" font-size="8.5" font-weight="400" fill="#331F1E" text-anchor="middle" opacity="0.4">Complément alimentaire</text>
+            <!-- Bottom dots -->
+            <circle cx="95" cy="342" r="3" fill="#C4633A" opacity="0.35"/>
+            <circle cx="110" cy="342" r="3" fill="#C4633A" opacity="0.6"/>
+            <circle cx="125" cy="342" r="3" fill="#C4633A" opacity="0.35"/>
+            <!-- Decorative circle -->
+            <circle cx="110" cy="170" r="72" stroke="#C4633A" stroke-width="0.8" stroke-dasharray="4 6" opacity="0.2"/>
+            <defs>
+              <linearGradient id="boxGrad" x1="10" y1="10" x2="210" y2="370" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#F5DCCF" stop-opacity="0.7"/>
+                <stop offset="60%" stop-color="#EDE3CC" stop-opacity="0"/>
+                <stop offset="100%" stop-color="#C4633A" stop-opacity="0.2"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── INGRÉDIENTS ───────────────────────────────────────── -->
+<section id="ingredients" aria-labelledby="ingredients-title">
+  <div class="container">
+    <div class="ingredients-header">
+      <div class="section-label reveal">Formule transparente</div>
+      <h2 class="section-title reveal delay-1" id="ingredients-title">Des ingrédients que vous connaissez.</h2>
+      <p class="section-desc reveal delay-2" style="margin:0 auto">
+        Zéro ingrédient mystère. Chaque composant est choisi pour son efficacité prouvée et sa tolérance digestive optimale.
+      </p>
+    </div>
+
+    <div class="ingredients-grid">
+      <!-- Ingredient 1 -->
+      <div class="ingredient-card reveal delay-1">
+        <div class="ingredient-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="4" fill="#C4633A" opacity="0.8"/>
+            <path d="M12 2v3M12 19v3M2 12h3M19 12h3" stroke="#C4633A" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="12" cy="12" r="9" stroke="#C4633A" stroke-width="1" opacity="0.3" stroke-dasharray="3 4"/>
+          </svg>
+        </div>
+        <div class="ingredient-name">Lactobacillus acidophilus</div>
+        <div class="ingredient-dose">10 Milliards UFC</div>
+        <p class="ingredient-desc">Souche probiotique de référence pour restaurer l'équilibre de la flore intestinale et renforcer la barrière protectrice.</p>
+      </div>
+
+      <!-- Ingredient 2 -->
+      <div class="ingredient-card reveal delay-2">
+        <div class="ingredient-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M12 3C8 3 5 6 5 9C5 13 8 15 8 18H16C16 15 19 13 19 9C19 6 16 3 12 3Z" stroke="#C4633A" stroke-width="1.5" fill="none"/>
+            <path d="M8 18h8M9 21h6" stroke="#C4633A" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="ingredient-name">Inuline de Chicorée</div>
+        <div class="ingredient-dose">2 000 mg</div>
+        <p class="ingredient-desc">Fibre prébiotique naturelle qui nourrit sélectivement les bonnes bactéries et favorise leur prolifération durable.</p>
+      </div>
+
+      <!-- Ingredient 3 -->
+      <div class="ingredient-card reveal delay-3">
+        <div class="ingredient-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2C7 2 4 6 4 10C4 14 7 16 9 19L12 22L15 19C17 16 20 14 20 10C20 6 17 2 12 2Z" stroke="#C4633A" stroke-width="1.5" fill="none"/>
+            <path d="M12 7v5l3 2" stroke="#C4633A" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="ingredient-name">Gingembre BIO</div>
+        <div class="ingredient-dose">400 mg</div>
+        <p class="ingredient-desc">Anti-inflammatoire naturel qui soulage les ballonnements, nausées et inconforts digestifs post-repas.</p>
+      </div>
+
+      <!-- Ingredient 4 -->
+      <div class="ingredient-card reveal delay-1">
+        <div class="ingredient-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M3 12C3 7 7 3 12 3C17 3 21 7 21 12C21 17 17 21 12 21" stroke="#C4633A" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M3 12C3 17 7 21 12 21" stroke="#C4633A" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="2 3"/>
+            <path d="M12 8v4l-3 2" stroke="#C4633A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="ingredient-name">Glutamine</div>
+        <div class="ingredient-dose">500 mg</div>
+        <p class="ingredient-desc">Acide aminé essentiel à la réparation de la muqueuse intestinale, notamment en cas d'hyperperméabilité.</p>
+      </div>
+
+      <!-- Ingredient 5 -->
+      <div class="ingredient-card reveal delay-2">
+        <div class="ingredient-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M12 3L4 7v5c0 4.4 3.4 8.5 8 9.5c4.6-1 8-5.1 8-9.5V7L12 3Z" stroke="#C4633A" stroke-width="1.5" fill="none"/>
+            <path d="M9 12l2 2 4-4" stroke="#C4633A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="ingredient-name">Artichaut Extrait</div>
+        <div class="ingredient-dose">300 mg</div>
+        <p class="ingredient-desc">Stimule la production de bile, facilite la digestion des graisses et protège les cellules hépatiques.</p>
+      </div>
+
+      <!-- Ingredient 6 -->
+      <div class="ingredient-card reveal delay-3">
+        <div class="ingredient-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2C9 2 7 4 7 7C7 9 8 10.5 10 11.5C8.5 12.5 7 14.5 7 17C7 19.8 9.2 22 12 22C14.8 22 17 19.8 17 17C17 14.5 15.5 12.5 14 11.5C16 10.5 17 9 17 7C17 4 15 2 12 2Z" stroke="#C4633A" stroke-width="1.5" fill="none"/>
+          </svg>
+        </div>
+        <div class="ingredient-name">Vitamine B12</div>
+        <div class="ingredient-dose">2.4 µg (100% VNR)</div>
+        <p class="ingredient-desc">Essentielle au métabolisme énergétique, au bon fonctionnement neurologique et à la réduction de la fatigue.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── RITUAL ────────────────────────────────────────────── -->
+<section id="ritual" aria-labelledby="ritual-title">
+  <div class="container">
+    <div class="section-label reveal">Simple comme bonjour</div>
+    <h2 class="section-title reveal delay-1" id="ritual-title">Le rituel en 3 gestes.</h2>
+    <p class="section-desc reveal delay-2">
+      Aucun équipement, aucune préparation complexe. Juste un stick, de l'eau, et 30 secondes de votre matinée.
+    </p>
+
+    <div class="ritual-grid">
+      <!-- Step 1 -->
+      <div class="ritual-step reveal delay-1">
+        <div class="ritual-step-num">Étape 01</div>
+        <div class="ritual-step-icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <path d="M14 4C9 4 5 8 5 13V20H23V13C23 8 19 4 14 4Z" stroke="#E8895A" stroke-width="1.5" fill="none"/>
+            <path d="M9 20V22C9 23.1 9.9 24 11 24H17C18.1 24 19 23.1 19 22V20" stroke="#E8895A" stroke-width="1.5"/>
+            <path d="M11 12h6M14 9v6" stroke="#E8895A" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3 class="ritual-step-title">Ouvrez le stick</h3>
+        <p class="ritual-step-desc">Déchirez simplement la languette du stick poudre le long du trait de découpe. Un geste précis, pensé pour être discret en toutes circonstances.</p>
+
+        <!-- Connector arrow -->
+        <svg class="ritual-connector" viewBox="0 0 22 12" fill="none" aria-hidden="true">
+          <path d="M1 6h18M15 2l4 4-4 4" stroke="#E8895A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="ritual-step reveal delay-2">
+        <div class="ritual-step-num">Étape 02</div>
+        <div class="ritual-step-icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <path d="M7 6h14l-2 16H9L7 6Z" stroke="#E8895A" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
+            <path d="M5 6h18" stroke="#E8895A" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M11 6V5a3 3 0 016 0v1" stroke="#E8895A" stroke-width="1.5"/>
+            <path d="M14 11v6" stroke="#E8895A" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="1.5 2"/>
+          </svg>
+        </div>
+        <h3 class="ritual-step-title">Versez dans 200ml d'eau</h3>
+        <p class="ritual-step-desc">Versez la poudre dans un verre d'eau fraîche ou tiède. La formule se dissout en quelques secondes, sans grumeaux ni résidus.</p>
+
+        <!-- Connector arrow -->
+        <svg class="ritual-connector" viewBox="0 0 22 12" fill="none" aria-hidden="true">
+          <path d="M1 6h18M15 2l4 4-4 4" stroke="#E8895A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="ritual-step reveal delay-3">
+        <div class="ritual-step-num">Étape 03</div>
+        <div class="ritual-step-icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <path d="M9 14L12.5 17.5L19 11" stroke="#E8895A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="14" cy="14" r="9.5" stroke="#E8895A" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <h3 class="ritual-step-title">Dégustez chaque matin</h3>
+        <p class="ritual-step-desc">Buvez à jeun, de préférence 20 minutes avant le petit-déjeuner. Savourez les notes de pêche et de litchi tout en prenant soin de vous.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── RÉSULTATS ─────────────────────────────────────────── -->
+<section id="resultats" aria-labelledby="resultats-title">
+  <div class="container">
+    <div class="stats-header">
+      <div>
+        <div class="section-label reveal">Résultats cliniques</div>
+        <h2 class="section-title reveal delay-1" id="resultats-title">Les chiffres parlent d'eux-mêmes.</h2>
+      </div>
+      <p class="section-desc reveal delay-2">
+        Évalué lors d'une étude en double aveugle menée sur 312 participantes sur 4 semaines de cure continue.
+      </p>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card reveal delay-1">
+        <div class="stat-number">87%</div>
+        <div class="stat-label">des participantes constatent une réduction des ballonnements dès J14</div>
+      </div>
+      <div class="stat-card reveal delay-2">
+        <div class="stat-number">3×</div>
+        <div class="stat-label">amélioration du confort digestif global après 30 jours</div>
+      </div>
+      <div class="stat-card reveal delay-3">
+        <div class="stat-number">94%</div>
+        <div class="stat-label">recommanderaient The Gut Reset à leur entourage</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TÉMOIGNAGES ───────────────────────────────────────── -->
+<section id="temoignages" aria-labelledby="temoignages-title">
+  <div class="container">
+    <div class="testimonials-header">
+      <div class="section-label reveal">Ce qu'elles en disent</div>
+      <h2 class="section-title reveal delay-1" id="temoignages-title">Leur intestin leur dit merci.</h2>
+    </div>
+
+    <div class="testimonials-track">
+      <!-- Testimonial 1 -->
+      <div class="testimonial-card reveal delay-1">
+        <div class="testimonial-stars" aria-label="5 étoiles sur 5">
+          <svg class="star-svg" viewBox="0 0 16 16" fill="#C4633A" aria-hidden="true"><path d="M8 1l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 10.7l-3.8 2.1.7-4.3-3.1-3 4.3-.6z"/></svg>
+          <svg class="star-svg" viewBox="0 0 16 16" fill="#C4633A" aria-hidden="true"><path d="M8 1l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 10.7l-3.8 2.1.7-4.3-3.1-3 4.3-.6z"/></svg>
+          <svg class="star-svg" viewBox="0 0 16 16" fill="#C4633A" aria-hidden="true"><path d="M8 1l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 10.7l-3.8 2.1.7-4.3-3.1-3 4.3-.6z"/></svg>
+          <svg class="star-svg" viewBox="0 0 16 16" fill="#C4633A" aria-hidden="true"><path d="M8 1l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 10.7l-3.8 2.1.7-4.3-3.1-3 4.3-.6z"/></svg>
+          <svg class="star-svg" viewBox="0 0 16 16" fill="#C4633A" aria-hidden="true"><path d="M8 1l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 10.7l-3.8 2.1.7-4.3-3.1-3 4.3-.6z"/></svg>
+        </div>
+        <p class="testimonial-text">J'ai testé des dizaines de compléments pour ma digestion. The Gut Reset est le premier qui a vraiment changé quelque chose. Après 3 semaines, mes ballonnements du soir ont quasiment disparu.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar" aria-hidden="true">
+            <svg viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg">
+              <rect width="38" height="38" fill="#E8895A"/>
+              <circle cx="19" cy="15" r="7" fill="#FDF8E7" opacity="0.85"/>
+              <ellipse cx="19" cy="34" rx="12" ry="8" fill="#FDF8E7" opacity="0.85"/>
+            </svg>
+          </div>
+          <div>
+            <div class="author-name">Camille R.</div>
+            <div class="author-detail">Paris, 34 ans · Cure de 30 jours</div>
+            <div class="testimonial-verified">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+                <circle cx="5" cy="5" r="4.5" fill="#C4633A" opacity="0.2" stroke="#C4633A" stroke-width="0.8"/>
+                <path d="M3 5l1.3 1.3 2.7-2.7" stroke="#C4633A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Achat vérifié
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 2 -->
+      <div class="testimonial-card reveal delay-2">
+        <div class="testimonial-stars" aria-label="5 étoiles sur 5">
+          <svg class="star-svg" viewBox="0 0 16 16" fill="#C4633A" aria-hidden="true"><path d="M8 1l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 10.7l-3.8 2.1.7-4.3-3.1-3 4.3-.6z"/></svg>
+          <svg class="star-svg" viewBox="0 0 16 16" fill="#C4633A" aria-hidden="true"><path d="M8 1l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 10.7l-3.8 2.1.7-4.3-3.1-3 4.3-.6z"/></svg>
+          <svg class="star-svg" viewBox="0 0 16 16" fill="#C4633A" aria-hidden="true"><path d="M8 1l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 10.7l-3.8 2.1.7-4.3-3.1-3 4.3-.6z"/></svg>
+          <svg class="star-svg" viewBox="0 0 16 16" fill="#C4633A" aria-hidden="true"><path d="M8 1l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 10.7l-3.8 2.1.7-4.3-3.1-3 4.3-.6z"/></svg>
+          <svg class="star-svg" viewBox="0 0 16 16" fill="#C4633A" aria-hidden="true"><path d="M8 1l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 10.7l-3.8 2.1.7-4.3-3.1-3 4.3-.6z"/></svg>
+        </div>
+        <p class="testimonial-text">Le goût pêche litchi est vraiment agréable — enfin un complément qu'on prend avec plaisir ! Et les résultats sont là : mon transit s'est régularisé dès la deuxième semaine.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar" aria-hidden="true">
+            <svg viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg">
+              <rect width="38" height="38" fill="#B8963E"/>
+              <circle cx="19" cy="15" r="7" fill="#FDF8E7" opacity="0.85"/>
+              <ellipse cx="19" cy="34" rx="12" ry="8" fill="#FDF8E7" opacity="0.85"/>
+            </svg>
+          </div>
+          <div>
+            <div class="author-name">Sophie M.</div>
+            <div class="author-detail">Lyon, 28 ans · 2ème cure</div>
+            <div class="testimonial-verified">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+                <circle cx="5" cy="5" r="4.5" fill="#C4633A" opacity="0.2" stroke="#C4633A" stroke-width="0.8"/>
+                <path d="M3 5l1.3 1.3 2.7-2.7" stroke="#C4633A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Achat vérifié
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 3 -->
+      <div class="testimonial-card reveal delay-3">
+        <div class="testimonial-stars" aria-label="5 étoiles sur 5">
+          <svg class="star-svg" viewBox="0 0 16 16" fill="#C4633A" aria-hidden="true"><path d="M8 1l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 10.7l-3.8 2.1.7-4.3-3.1-3 4.3-.6z"/></svg>
+          <svg class="star-svg" viewBox="0 0 16 16" fill="#C4633A" aria-hidden="true"><path d="M8 1l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 10.7l-3.8 2.1.7-4.3-3.1-3 4.3-.6z"/></svg>
+          <svg class="star-svg" viewBox="0 0 16 16" fill="#C4633A" aria-hidden="true"><path d="M8 1l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 10.7l-3.8 2.1.7-4.3-3.1-3 4.3-.6z"/></svg>
+          <svg class="star-svg" viewBox="0 0 16 16" fill="#C4633A" aria-hidden="true"><path d="M8 1l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 10.7l-3.8 2.1.7-4.3-3.1-3 4.3-.6z"/></svg>
+          <svg class="star-svg" viewBox="0 0 16 16" fill="#C4633A" aria-hidden="true"><path d="M8 1l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 10.7l-3.8 2.1.7-4.3-3.1-3 4.3-.6z"/></svg>
+        </div>
+        <p class="testimonial-text">Atteinte du syndrome de l'intestin irritable depuis 5 ans, j'étais sceptique. Mais la qualité de la formule et la transparence sur les ingrédients m'ont convaincue. Je ne m'en passerai plus.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar" aria-hidden="true">
+            <svg viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg">
+              <rect width="38" height="38" fill="#7A6358"/>
+              <circle cx="19" cy="15" r="7" fill="#FDF8E7" opacity="0.85"/>
+              <ellipse cx="19" cy="34" rx="12" ry="8" fill="#FDF8E7" opacity="0.85"/>
+            </svg>
+          </div>
+          <div>
+            <div class="author-name">Léa T.</div>
+            <div class="author-detail">Bordeaux, 41 ans · 3ème cure</div>
+            <div class="testimonial-verified">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+                <circle cx="5" cy="5" r="4.5" fill="#C4633A" opacity="0.2" stroke="#C4633A" stroke-width="0.8"/>
+                <path d="M3 5l1.3 1.3 2.7-2.7" stroke="#C4633A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Achat vérifié
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA FINAL ─────────────────────────────────────────── -->
+<section id="cta-final" aria-labelledby="cta-title">
+  <div class="cta-bg-pattern" aria-hidden="true"></div>
+  <div class="container">
+    <div class="cta-content">
+      <div class="section-label reveal" style="justify-content:center">Commencez votre cure</div>
+      <h2 class="section-title reveal delay-1" id="cta-title">Votre intestin mérite mieux.</h2>
+      <p class="section-desc reveal delay-2">30 jours pour transformer votre confort digestif. Livraison offerte dès 2 boîtes. Satisfaite ou remboursée 30 jours.</p>
+
+      <div class="cta-buttons reveal delay-3">
+        <a href="#" class="btn-cta-light" aria-label="Commander The Gut Reset n°1 — 39,90€">
+          <span>Commander — 39,90€</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="#" class="btn-cta-outline" aria-label="Pack Cure 3 mois — meilleur prix">
+          Pack 3 mois
+        </a>
+      </div>
+
+      <p class="cta-guarantee reveal delay-4">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <path d="M7 1.5L11.5 3.5V7.5C11.5 10 9.5 12.5 7 13.5C4.5 12.5 2.5 10 2.5 7.5V3.5L7 1.5Z" stroke="rgba(253,248,231,0.5)" stroke-width="1.2" fill="none"/>
+          <path d="M5 7l1.5 1.5 3-3" stroke="rgba(253,248,231,0.5)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Paiement sécurisé · Livraison 48h · Remboursé si non satisfaite
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ────────────────────────────────────────────── -->
+<footer aria-label="Pied de page">
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand-name">
+          <span style="width:8px;height:8px;background:var(--terra);border-radius:50%;display:inline-block;" aria-hidden="true"></span>
+          Clear The Label
+        </div>
+        <p class="footer-desc">Une marque française de compléments alimentaires premium. Transparence, efficacité, et plaisir gustatif — sans compromis.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Produits</div>
+        <ul class="footer-links">
+          <li><a href="#">The Gut Reset n°1</a></li>
+          <li><a href="#">Pack Cure 3 mois</a></li>
+          <li><a href="#">Abonnement mensuel</a></li>
+          <li><a href="#">Coffret découverte</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Marque</div>
+        <ul class="footer-links">
+          <li><a href="#">Notre histoire</a></li>
+          <li><a href="#">La formule</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 Clear The Label. Tous droits réservés. Paris, France.</p>
+      <div class="footer-socials" aria-label="Réseaux sociaux">
+        <!-- Instagram -->
+        <a href="#" class="social-link" aria-label="Clear The Label sur Instagram">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <rect x="2" y="2" width="12" height="12" rx="3.5" stroke="rgba(253,248,231,0.6)" stroke-width="1.2"/>
+            <circle cx="8" cy="8" r="2.8" stroke="rgba(253,248,231,0.6)" stroke-width="1.2"/>
+            <circle cx="11.2" cy="4.8" r="0.7" fill="rgba(253,248,231,0.6)"/>
+          </svg>
+        </a>
+        <!-- TikTok -->
+        <a href="#" class="social-link" aria-label="Clear The Label sur TikTok">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M10.5 2C10.6 3.3 11.4 4.4 12.5 5V7C11.6 7 10.7 6.7 10 6.3V10.5C10 12.4 8.4 14 6.5 14C4.6 14 3 12.4 3 10.5C3 8.6 4.6 7 6.5 7V9C5.7 9 5 9.7 5 10.5C5 11.3 5.7 12 6.5 12C7.3 12 8 11.3 8 10.5V2H10.5Z" fill="rgba(253,248,231,0.6)"/>
+          </svg>
+        </a>
+        <!-- Pinterest -->
+        <a href="#" class="social-link" aria-label="Clear The Label sur Pinterest">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <circle cx="8" cy="8" r="5.5" stroke="rgba(253,248,231,0.6)" stroke-width="1.2"/>
+            <path d="M6.5 11.5C6.8 10.3 7.5 7.8 7.5 7.8C7.5 7.8 7.2 7.2 7.2 6.5C7.2 5.5 7.8 4.8 8.5 4.8C9.1 4.8 9.4 5.2 9.4 5.8C9.4 6.4 9 7.4 8.8 8.2C8.6 8.9 9.1 9.5 9.8 9.5C11 9.5 11.5 8.2 11.5 6.7C11.5 5.1 10.4 4 8.5 4C6.3 4 5 5.6 5 7.3C5 8 5.2 8.5 5.5 8.9" stroke="rgba(253,248,231,0.6)" stroke-width="1" stroke-linecap="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to top -->
+<button id="back-top" aria-label="Retour en haut de page">
+  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+    <path d="M9 13V5M5 9l4-4 4 4" stroke="#FDF8E7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</button>
+
+<script>
+  // ── Scroll progress bar ──────────────────────────────────
+  const progressBar = document.getElementById('progress-bar');
+  function updateProgress() {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? scrollTop / docHeight : 0;
+    progressBar.style.transform = `scaleX(${progress})`;
+  }
+
+  // ── Nav scroll state ─────────────────────────────────────
+  const navInner = document.getElementById('nav-inner');
+  function updateNav() {
+    navInner.classList.toggle('scrolled', window.scrollY > 40);
+  }
+
+  // ── Back to top ──────────────────────────────────────────
+  const backTop = document.getElementById('back-top');
+  function updateBackTop() {
+    backTop.classList.toggle('visible', window.scrollY > 500);
+  }
+  backTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // ── Scroll reveal (Intersection Observer) ───────────────
+  const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.12,
+    rootMargin: '0px 0px -40px 0px'
+  });
+
+  revealEls.forEach(el => observer.observe(el));
+
+  // ── Throttled scroll handler ─────────────────────────────
+  let rafId = null;
+  function onScroll() {
+    if (rafId) return;
+    rafId = requestAnimationFrame(() => {
+      updateProgress();
+      updateNav();
+      updateBackTop();
+      rafId = null;
+    });
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  // ── Smooth anchor links ──────────────────────────────────
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const target = document.querySelector(link.getAttribute('href'));
+      if (!target) return;
+      e.preventDefault();
+      const navHeight = 80;
+      const top = target.getBoundingClientRect().top + window.scrollY - navHeight;
+      window.scrollTo({ top, behavior: 'smooth' });
+    });
+  });
+
+  // ── Stat counter animation ───────────────────────────────
+  function animateCounter(el, target, suffix = '', duration = 1600) {
+    const isFloat = target % 1 !== 0;
+    const startTime = performance.now();
+    const start = 0;
+
+    function update(currentTime) {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      // Ease out quart
+      const eased = 1 - Math.pow(1 - progress, 4);
+      const current = start + (target - start) * eased;
+      el.textContent = (isFloat ? current.toFixed(1) : Math.round(current)) + suffix;
+      if (progress < 1) requestAnimationFrame(update);
+    }
+    requestAnimationFrame(update);
+  }
+
+  // Trigger stat counters when visible
+  const statNumbers = document.querySelectorAll('.stat-number');
+  const statData = [
+    { value: 87, suffix: '%' },
+    { value: 3, suffix: '×' },
+    { value: 94, suffix: '%' }
+  ];
+
+  const statObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        const idx = Array.from(statNumbers).indexOf(entry.target);
+        if (idx !== -1) {
+          const data = statData[idx];
+          setTimeout(() => animateCounter(entry.target, data.value, data.suffix), idx * 150);
+        }
+        statObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  statNumbers.forEach(el => statObserver.observe(el));
+
+  // ── Respect prefers-reduced-motion for marquee ───────────
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelector('.marquee-track').style.animation = 'none';
+    document.querySelector('.orbit-ring').style.animation = 'none';
+    document.querySelector('.product-stick').style.animation = 'none';
+    document.querySelector('.stage-blob').style.animation = 'none';
+    document.querySelectorAll('.orbit-pill').forEach(p => p.style.animation = 'none');
+    document.querySelectorAll('.float-badge').forEach(b => b.style.animation = 'none');
+  }
+</script>
+</body>
+</html>
